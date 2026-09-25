@@ -1,4 +1,4 @@
-{ elmPackages, mkShell }:
+{ elmPackages, mkShell, ... }:
 
 { name
 , extraPackages ? []
@@ -26,6 +26,10 @@ mkShell {
       elm-test "$@"
     }
 
+    r () {
+      elm repl "$@"
+    }
+
     c () {
       nix flake check -L &&
       f --validate &&
@@ -40,6 +44,7 @@ mkShell {
     echo ""
     echo "Type 'f' to run elm-format"
     echo "Type 't' to run elm-test"
+    echo "Type 'r' to run elm repl"
     echo "Type 'c' to run all checks"
     echo "Type 'clean' to remove build artifacts"
     echo ""

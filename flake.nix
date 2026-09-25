@@ -3,6 +3,6 @@
 
   outputs = _:
     {
-      lib.mkElmShell = pkgs: pkgs.callPackage ./shells/elm.nix {};
+      lib.mkElmShell = import ./lib/mk-elm-shell.nix;
     };
 }
