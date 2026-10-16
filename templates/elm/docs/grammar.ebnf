@@ -1,0 +1,6 @@
+Program ::= Expr
+Expr    ::= Const
+Const   ::= Number
+Number  ::= [0-9]+
+
+/* Use https://www.bottlecaps.de/rr/ui to view it as a Railroad Diagram. */
