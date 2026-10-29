@@ -1,0 +1,66 @@
+{
+  "nodes": {
+    "flake-elm2nix": {
+      "inputs": {
+        "nix-utils-src": "nix-utils-src",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1793209125,
+        "narHash": "sha256-e6CIpdj/9xA/43EKuxI1oUi5+bc4s6hBhClb+y/Og1A=",
+        "owner": "dwayne",
+        "repo": "elm2nix",
+        "rev": "986f9c02da5e73038dddaa2dda35f2283898fdd4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "dwayne",
+        "ref": "use-elm-0.19.3",
+        "repo": "elm2nix",
+        "type": "github"
+      }
+    },
+    "nix-utils-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1793118961,
+        "narHash": "sha256-gBrCb9wUF+TkjEBW5mQ/ft9kyH7lyJu2Yi+62A/MzF4=",
+        "owner": "dwayne",
+        "repo": "nix-utils",
+        "rev": "5b2085312a7e0cd39204e96fbca8b8c7812bd896",
+        "type": "github"
+      },
+      "original": {
+        "owner": "dwayne",
+        "repo": "nix-utils",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1793195608,
+        "narHash": "sha256-lNZLwWf5tYNKjothaoFq/VZYvzaclmLafjgMdUlpJPQ=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "58deea654ec5dd0644f31c840a07c29fa0592528",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "flake-elm2nix": "flake-elm2nix",
+        "nixpkgs": "nixpkgs"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}

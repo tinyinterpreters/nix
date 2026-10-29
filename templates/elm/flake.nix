@@ -1,21 +1,24 @@
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    flake-utils.url = "github:numtide/flake-utils";
-    ti.url = "github:tinyinterpreters/nix";
+    ti = {
+      url = "github:tinyinterpreters/nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, flake-utils, ti }:
-    flake-utils.lib.eachDefaultSystem(system:
-      let
-        pkgs = nixpkgs.legacyPackages.${system};
-      in
-      {
-        devShells.default = pkgs.mkShell {
-          name = "interpreter";
-
-          inputsFrom = [ (ti.lib.elmShell pkgs) ];
-        };
-      }
-    );
+  outputs = { self, nixpkgs, ti }:
+    let
+      system = "x86_64-linux";
+      pkgs = import nixpkgs {
+        inherit system;
+        overlays = [ ti.overlays.default ];
+      };
+    in
+    {
+      devShells.${system}.default = pkgs.mkShell {
+        name = "interpreter";
+        inputsFrom = [ pkgs.tiPackages.devShell ];
+      };
+    };
 }
